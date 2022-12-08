@@ -22,6 +22,7 @@ for(const item of menu ) {
         console.log(`Sure, the ${item} will be served in 15 minutes`)
     }else {
         console.log("Sorry, we do not have that")
+        //break? Should I be breaking my code here
     }
 }
 
@@ -43,3 +44,17 @@ console.log(solarSystem[7].moons[1])
 solarSystem[0].moons = ['Endor']
 solarSystem.push({ name: 'Pluto', ringSystem: true, moons: ['Charon']})
 // Up to question 5
+
+// Attempting reading list
+console.log("The reading list")
+
+const bookList = [
+    {tiitle: 'The Godfather', author:'Mario Puzo',alreadyRead: true},
+    {tiitle: 'Metro 2033', author:'Dmitry Glukhovsky',alreadyRead: false},
+    {tiitle: 'Snowpiercer: Vol 1 - The Escape Hardcover', author:'Benjamin Legrand',alreadyRead: false},
+    {tiitle: 'The Clean Coder: A Code of Conduct for Professional Programmers Paperback', author:'Unknown',alreadyRead: false},
+    {tiitle: 'Metro 2033', author:'Dmitry Glukhovsky',alreadyRead: false}
+]
+
+for (const bookinfo of bookList)
+    (console.log(bookinfo.bookinfo))
