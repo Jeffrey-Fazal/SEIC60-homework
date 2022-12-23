@@ -21,8 +21,6 @@ const shortenPageTitle = () => {
 mainTitle = document.querySelector('#main-title')
 newTtile = "Dom's Story"
 mainTitle.innerHTML = newTtile
-
-
 }
 
 shortenPageTitle()
@@ -31,16 +29,25 @@ shortenPageTitle()
 // Part 2
 const changeBodyBgColor = () => {
 
+const bgColor = document.querySelector('body')
+bgColor.setAttribute('style','background-color: red')
 }
+
+changeBodyBgColor()
 
 // Part 3
 const removeLastFavoriteThing = () => {
+const favThings = document.querySelector('#favorite-things > li:nth-last-child(1)')
+// const rmlstFav = parent.children[1]
+favThings.remove()
 
 }
+removeLastFavoriteThing()
 
 // Part 4
 const makeSpecialTitlesBigger = () => {
-
+const newTitlesize = document.querySelector(".special-title h1")
+bgColor.setAttribute('style','text-size: 100')
 }
 
 // Part 5
