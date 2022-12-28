@@ -52,15 +52,26 @@ bgColor.setAttribute('style','text-size: 100')
 
 // Part 5
 const RemoveChicagoRace = () => {
-
+const pastRaces = document.querySelector('#past-races > li:nth-child(4)')
+pastRaces.remove()
 }
+RemoveChicagoRace()
+
+// Let's add to DOM's **Past Races** list. Create a new `<li>` element, change the new `<li>` text to the name of a city, and append it to the **Past Races** list.
 
 // Part 6
 const addPastRace = () => {
+const pastRaces = document.querySelector('#past-races')
+const newCity = 'Sydney'
+li = document.createElement("li")
+li.appendChild(document.createTextNode(newCity));
+pastRaces.appendChild(li)
 
 }
-
+addPastRace()
 // Part 7
+
 const createNewBlogPost = () => {
 
 }
+// createNewBlogPost() 
