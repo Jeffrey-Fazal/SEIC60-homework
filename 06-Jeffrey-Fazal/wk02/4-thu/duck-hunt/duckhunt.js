@@ -25,11 +25,37 @@ const body = document.body
 //      pixels -- e.g., "400px" rather than simply "400".
 
 //   1.e. Congratulations! Move on to part 2!
+function createDuck() {
+  const duck = document.createElement("div")
+  duck.classList.add("duck")
+  body.appendChild(duck)
+  
+  selectDuck = document.querySelector('.duck')
+  setInterval(function() {
+    
+    selectDuck.classList.toggle('flap')
+  }, 250)
+  setInterval(function(){
+    let topPosition = Math.random() * window.innerHeight + 'px'
+    let leftPosition = Math.random() * window.innerWidth + 'px'
+    selectDuck.style.top = topPosition 
+    selectDuck.style.left = leftPosition 
+  },1000)
+  }
+
+  createDuck()
 
 // ---------------------------- PART 2 ---------------------------------
 
 // 2. Now, let's create lots of ducks!  Use a "for" loop to create 5 ducks
 //    using our fancy new createDuck() function
+
+// numberOfDucks = 5
+
+// for (let i = 0; i < numberOfDucks; i++ ) {
+//   createDuck(i)
+//   console.log(i)
+// }
 
 // --------------------------- PART 3 ------------------------------------
 
@@ -47,3 +73,23 @@ const body = document.body
 //     function each time a duck gets removed from the DOM.
 
 // FIN. You win 1 trillion tokens.  Play the day away!
+
+// Working Code (duck flie, with everything in one function .... more or less)
+// function createDuck() {
+//   const duck = document.createElement("div")
+//   duck.classList.add("duck")
+//   body.appendChild(duck)
+  
+//   selectDuck = document.querySelector('.duck')
+//   setInterval(function() {
+    
+//     selectDuck.classList.toggle('flap')
+//   }, 250)
+//   setInterval(function(){
+//     let topPosition = Math.random() * window.innerHeight + 'px'
+//     let leftPosition = Math.random() * window.innerWidth + 'px'
+//     selectDuck.style.top = topPosition 
+//     selectDuck.style.left = leftPosition 
+//   },1000)
+//   }
+  
