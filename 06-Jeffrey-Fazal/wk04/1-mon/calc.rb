@@ -7,6 +7,9 @@ def show_menu
     puts "[d] - Division"
     puts "[e] - Exponent"
     puts "[r] - Squre Root"
+    puts "[b] - BMI Calculator"
+    puts "[mc] - Mortgage Calculator"
+    puts "[t] - Trip calculator"
     puts "[q] = Quit"
     print "Enter your choice: "
 end
@@ -56,6 +59,40 @@ def calculator_function(calculation)
     puts "Number to square root"
     first_number = gets.to_f
     puts "\n √#{first_number} =  #{Math.sqrt(first_number)} \n \n"
+    when 'bmi'
+    # Formula: weight (kg) / [height (m)]2
+    puts "Let's calculate your Body Max Index BMI"
+    puts "What is your weight in kilograms?"
+    kg = gets.to_f
+    puts "What is your heigh in meters?"
+    height = gets.to_f
+    puts "Your BMI is #{ kg / (height**2)}"
+    when 'mc'
+    # Formula: M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
+    puts "What did you borrow?"
+    p = gets.to_f
+    puts "How much interest are you paying?"
+    i = gets.to_f
+    puts "How many months left on your loan?"
+    n = gets.to_f
+    months = p*((i*(1 + i)**n) / ((1 + i)**n - 1)) # TODO: Fix calculation, look into order of operations
+    years = months / 12
+    puts "You've got #{months.ceil} months left or #{years.ceil} years" 
+    when 't'
+    puts "How far is the destination in kilometers?"
+    distance = gets.to_f
+    puts "What is your cars km per litre?"
+    fuel_eco = gets.to_f
+    puts "What did you pay for petrol (dollars per a litre)?"
+    price = gets.to_f
+    puts "How fast did you go in km per hour?"
+    speed = gets.to_f
+    trip_time = distance * speed # TODO: Find the right formulas
+    trip_cost = price * distance
+    puts "It will take #{trip_time} hours and cost $#{trip_cost}"
+    when 'h'
+    puts "This is a calculator only use numbers e.g. 5 not five
+    Likewise, don't use units like kg or %"
     end
 end
 
@@ -74,6 +111,12 @@ until menu_choice == 'q'
         calculator_function '**'
     when 'r'
         calculator_function '√'
+    when 'b'
+        calculator_function 'bmi'
+    when 'mc'
+        calculator_function 'mc'
+    when 't'
+        calculator_function 't'
     else 
         puts "Invalid selection"
     end

@@ -30,6 +30,6 @@ Calculate the body mass index (BMI) for an individual, given their height and we
 ## Trip Calculator
 Calculate a trip time and cost given inputs for
 - distance
-- miles per gallon
-- price per gallon
-- speed in miles per hour
+- km per l
+- price per l
+- speed in km per hour
