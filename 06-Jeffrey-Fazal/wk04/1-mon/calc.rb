@@ -1,6 +1,6 @@
 def show_menu
-    puts "Calculator" # TODO: Check .center
-    puts "=-" * 40
+    puts "Calculator".center(40) # Uses the center method to appear in the middle of the divider
+    puts "=" * 40 
     puts "[a] - Addition"
     puts "[s] - Subtraction"
     puts "[m] - Multiplication"
@@ -8,104 +8,80 @@ def show_menu
     puts "[e] - Exponent"
     puts "[r] - Squre Root"
     puts "[q] = Quit"
-    print "Enter your choice:"
+    print "Enter your choice: "
 end
 
 show_menu
 menu_choice = gets.chomp.downcase
 
-def addtion_component
-    puts "First Number to Add"
-    a = gets.to_f
-    puts "Second Number to Add"
-    b = gets.to_f
-    puts "The sum of the two equals: #{a + b}"
-end
-
-def subtraction_component
-    puts "First number to subtract"
-    a = gets.to_f
-    puts "Second number to subtract"
-    b = gets.to_f
-    puts "#{a} - #{b} = #{a - b}"
-end
-
-def division_component
-    puts "First number to divide"
-    a = gets.to_f
-    puts "Second number to divide"
-    b = gets.to_f
-    puts "#{a} / #{b} = #{a / b}"
-end
-
-def multplication_component
-    puts "First number to multiply"
-    a = gets.to_f
-    puts "Second number to multiply"
-    b = gets.to_f
-    puts "#{a} * #{b} =  #{a * b}"
-end
-
-def exponents_compontent
-    puts "First number for exponent"
-    a = gets.to_f
-    puts "Second number to exponent"
-    b = gets.to_f
-    puts "#{a} ** #{b} =  #{a ** b}"
-end
-
-def squareroot_compontent
+def calculator_function(calculation)
+    case calculation
+    when '+'
+    puts "Lets do some addition!"
+    print "First number to add: "
+    first_number = gets.to_f
+    print "Second number to add: "
+    second_number = gets.to_f
+    puts "\n#{first_number} + #{second_number} = #{first_number + second_number} \n \n"        
+    when '-'
+    puts "Lets do some subtraction!"
+    print "First number to subtract: "
+    first_number = gets.to_f
+    print "Second number to subtract: "
+    second_number = gets.to_f
+    puts "\n#{first_number} - #{second_number} = #{first_number - second_number} \n \n"
+    when '*'
+    puts "Lets do some multiplication!"
+    print "First number to multiply: "
+    first_number = gets.to_f
+    print "Second number to multiply: "
+    second_number = gets.to_f
+    puts "\n#{first_number} * #{second_number} = #{first_number * second_number} \n \n"
+    when '/'
+    puts "Lets do some division!"
+    print "First number to divide: "
+    first_number = gets.to_f
+    print "Second number to divide: "
+    second_number = gets.to_f
+    puts "\n#{first_number} / #{second_number} = #{first_number / second_number} \n \n"
+    when '**'
+    puts "Lets do some exponents!"
+    print "First number to exponent: " # No clue what the verb for exponent is 
+    first_number = gets.to_f
+    print "Second number to exponent: "
+    second_number = gets.to_f
+    puts "\n#{first_number} ** #{second_number} = #{first_number ** second_number} \n \n"
+    when '√' # Should probably figure out what encoding ruby uses, asume system for now
+    puts "Let's square root something"
     puts "Number to square root"
-    a = gets.to_f
-    puts "The square root of #{a} =  #{Math.sqrt(a)}"
-end
-
-# M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]. 
-
-# Here’s a breakdown of each of the variables:
-# https://www.mymove.com/mortgage/mortgage-calculation/
-# M = Total monthly payment
-# P = The total amount of your loan
-# I = Your interest rate, as a monthly percentage
-# N = The total amount of months in your timeline for paying off your mortgage
-
-def mortgage_compontent
-    puts "How much do you owe? (e.g 100000000)"
-    p = gets.to_i
-    puts "What is your interest rate (e.g 4.0)"
-    i = gets.to_i
-    puts "How many months are you planning on paying the loan? (e.g 21)"
-    n = gets.to_i
-    payments = p [ i(1 + i)**n ] / [ (1 + i)**n – 1]
-    #
+    first_number = gets.to_f
+    puts "\n √#{first_number} =  #{Math.sqrt(first_number)} \n \n"
+    end
 end
 
 until menu_choice == 'q'
     #do what they asked for
     case menu_choice
     when 'a'
-        puts "You choose addition!"
-        addtion_component
+        calculator_function '+'
     when 's'
-        puts "You choose subtraction!"
-        subtraction_component
+        calculator_function '-'
     when 'm'
-        puts "You choose multiplication!"
-        multplication_component
+        calculator_function '*'
     when 'd'
-        puts "You choose division!"
-        division_component
+        calculator_function '/'
     when 'e'
-        puts "You choose exponent"
-        exponents_compontent
+        calculator_function '**'
     when 'r'
-        puts "You choose square root"
-        squareroot_compontent
+        calculator_function '√'
     else 
         puts "Invalid selection"
     end
-    #show the menu again
+    # Gives time for the user to see the anwer before calling the menu
+    puts "Enter any key to see menu" 
+    anykey = gets
+
     show_menu
     menu_choice = gets.chomp.downcase
 end
-puts "Thanks for using this calculator"
+puts "Thanks for using this calculator, program will now quit..."
