@@ -7,3 +7,4 @@ CREATE TABLE contacts (
     email TEXT,
     phone INTEGER
 );
+-- This file is normally deleted in production?
