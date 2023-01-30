@@ -1,26 +1,23 @@
-// Example API URL: https://www.googleapis.com/books/v1/volumes?q=title:Jaws
-const baseURL = "https://www.googleapis.com/books/v1/volumes?q=title:"
-// let search = `${baseURL}?q=title:${searchQuery}`
-
 const fetchCover = function () {
     const xhr = new XMLHttpRequest ()
-    searchQuery = document.getElementById('userinput')
-    console.log('user searches')
+    searchQuery = document.getElementById('input')
+    if (searchQuery = null) {
+        searchQuery = 'jaws'
+    }
+    console.log('start request')
     console.log(`https://www.googleapis.com/books/v1/volumes?q=title:${searchQuery}`)
-    xhr.open ('GET', `baseURL + ${searchQuery}`)
+    xhr.open ('GET', `https://www.googleapis.com/books/v1/volumes?q=title:${searchQuery}`)
     xhr.send ()
     xhr.onreadystatechange = function () {
         if (xhr.readyState !== 4){
+            console.log('request in progress...')
             return
         }
         const data = JSON.parse(xhr.responseText)
         imgUrl = data.items[0].volumeInfo.imageLinks.thumbnail
-        console.log(imgUrl) 
+        console.log(` request returned: ${imgUrl}`) 
 
-        const img = document.createElement('img');
-        img.src = imgUrl
-        document.getElementById('cover').appendChild(img);
     }
 }
+
 fetchCover();
-a = document.getElementById('searchbutton').addEventListener('click', fetchCover);
