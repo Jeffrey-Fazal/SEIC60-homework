@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffcb05;
+}
+
+h1 {
+  color: #2a75bb
 }
 
 code {
@@ -16,3 +21,4 @@ code {
 .poke-card {
   display: inline-block;
 }
+
